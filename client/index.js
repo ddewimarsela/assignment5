@@ -66,10 +66,6 @@ async function handleClickEditButton(bookId) {
 }
 async function handleClickDeleteButton(bookId) {
   try {
-    // const confirmation = confirm('Apakah anda yakin ingin menghapus buku ini?');
-    // if(!confirmation){
-    //   return;
-    // }
     await deleteBook(bookId);
     
     loadPage();
