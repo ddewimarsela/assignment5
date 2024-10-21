@@ -66,10 +66,10 @@ async function handleClickEditButton(bookId) {
 }
 async function handleClickDeleteButton(bookId) {
   try {
-    const confirmation = confirm('Apakah anda yakin ingin menghapus buku ini?');
-    if(!confirmation){
-      return;
-    }
+    // const confirmation = confirm('Apakah anda yakin ingin menghapus buku ini?');
+    // if(!confirmation){
+    //   return;
+    // }
     await deleteBook(bookId);
     
     loadPage();
@@ -125,10 +125,9 @@ function handleClickAddNav() {
   loadPage();
 }
 
-// add event listener click tag a didalam li dengan function handleClickAddNav
 const navLinks = document.querySelectorAll('li a');
 navLinks.forEach((navLink) => {
-  // TODO: answer here
+ 
   navLink.addEventListener('click',handleClickAddNav);
 });
 
@@ -218,9 +217,7 @@ async function fetchBooks() {
 
 async function addBook(book) {
   try {
-   
-
-    const response = await fetch ('http://localhost:3333/books',{
+       const response = await fetch ('http://localhost:3333/books',{
       method: 'POST',
       headers: {
         'content-Type': 'application/json'
@@ -239,11 +236,7 @@ async function addBook(book) {
 
 async function editBook(book) {
   try {
-    /* 
-      ubah buku yang ada di http://localhost:3333/books/:id dengan method PUT
-      body yang dikirim adalah book yang dikirimkan sebagai parameter function
-    */
-   
+
     const resp = await fetch (`http://localhost:3333/books/${book.id}`,{
       method: 'PUT',
       headers: {
